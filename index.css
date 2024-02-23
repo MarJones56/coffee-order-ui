@@ -1,0 +1,132 @@
+body {
+    background-color: antiquewhite;
+    margin: 0;
+}
+
+div.Header {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+div.HeaderHome {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+div.HeaderHome a {
+    color: brown;
+}
+
+div.HeaderNav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: left;
+}
+
+div.HeaderNav a {
+    margin-right: 20px;
+}
+
+div.ButtonContainer {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 10px; 
+}
+
+.grid-item {
+    border: none;
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    background-color: #45a049;
+}
+
+button {
+    border-radius: 5px;
+    height: 250px;
+    width: 400px;   
+    border: none;
+    background-color: burlywood;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(216, 160, 87);
+}
+div.ButtonTitle{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.OrderMenu {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.OrderMenu h2 {
+    margin-top: 0;
+}
+
+.OrderMenu button {
+    display: block;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.OrderMenu .order-item {
+    display: block;
+    margin-bottom: 10px;
+    background-color: #af7302;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.OrderMenu .order-item:hover {
+    background-color: #865801;
+}
+
+.OrderFinalButton {
+    margin-top: 20px;
+}
+

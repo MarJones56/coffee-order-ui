@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Order</title>
+</head>
+<body>
+    <div class="Header">
+        <div class="HeaderHome">
+            <a href="index.html">Coffee Order System</a>
+        </div>
+        <div class="HeaderNav">
+            <a href="orderstatus.html">Order Status</a>
+        </div>
+    </div>
+
+    <div class="Content">
+        <div class="ButtonTitle">
+            <h2>Select Condiments</h2>
+        </div>
+        <div class="ButtonContainer">
+            <div class="grid-container">
+                <button onclick="addCondiment('Milk')">Milk</button>
+                <button onclick="addCondiment('Mocha')">Mocha</button>
+                <button onclick="addCondiment('Soy')">Soy</button>
+                <button onclick="addCondiment('Whip')">Whip</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="OrderMenu">
+        <h2>My Order</h2>
+        <button class="order-item" id="beverageButton" onclick="goBack()"></button>
+        <button class="order-item" id="cond0" onclick="deleteCondiment(0)">Condiment 1</button>
+        <button class="order-item" id="cond1" onclick="deleteCondiment(1)">Condiment 2</button>
+        <button class="order-item" id="cond2" onclick="deleteCondiment(2)">Condiment 3</button>
+        <button class="order-item" id="cond3" onclick="deleteCondiment(3)">Condiment 4</button>
+        <div class="OrderFinalButton">
+            <button>Submit Order</button>
+        </div>
+    </div>
+
+    <script>
+        let condiments = [];
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const beverage = urlParams.get('beverage');
+        document.getElementById('beverageButton').innerText = beverage;
+
+        function addCondiment(condiment){
+            if (condiments.length === 4){
+                return;
+            }
+
+            condiments.push(condiment)
+            realign();
+        }
+
+        function deleteCondiment(number){
+            condiments.pop(number);
+            realign();
+        }
+
+        function realign(){
+            let size = condiments.length;
+            for (let i = 0; i < 4; i++){
+                let button = "cond" + i;
+                if (i >= size){
+                    document.getElementById(button).innerText = "Condiment " + (i + 1);
+                } else {
+                    document.getElementById(button).innerText = condiments[i];
+                }
+            }
+        }
+
+        function goBack(){
+            window.location.href = 'beverage.html';
+        }
+    </script>
+</body>
+</html>
