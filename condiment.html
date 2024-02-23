@@ -59,8 +59,10 @@
         }
 
         function deleteCondiment(number){
+            if (condiments[number] != null || condiments[number] != undefined){
             condiments.pop(number);
             realign();
+            }
         }
 
         function realign(){
