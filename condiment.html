@@ -38,7 +38,7 @@
         <button class="order-item" id="cond2" onclick="deleteCondiment(2)">Condiment 3</button>
         <button class="order-item" id="cond3" onclick="deleteCondiment(3)">Condiment 4</button>
         <div class="OrderFinalButton">
-            <button>Submit Order</button>
+            <button onclick="submitOrder()">Submit Order</button>
         </div>
     </div>
 
@@ -79,6 +79,37 @@
 
         function goBack(){
             window.location.href = 'beverage.html';
+        }
+
+        async function submitOrder(){
+            let orderData = {
+                beverage: beverage,
+                condiments: condiments,
+            }
+            let host = "http://localhost:8080";
+            let message = "";
+            console.log(orderData);
+            let request = {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify(orderData)
+            };
+            let response = await fetch(host + "/orders", request);
+            if (response.status == 201){
+            message = "Order Processed";
+
+            let data = await response.json();
+            console.log(JSON.stringify(data));
+            window.location.href = 'receipt.html?receipt=' + JSON.stringify(data);
+
+            } else {
+            console.log(response);
+            message = "An error has occured, please contact the support team";
+            }
+            alert(message);
+
         }
     </script>
 </body>
