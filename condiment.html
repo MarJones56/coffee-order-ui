@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="index.css"> 
+    <link rel="stylesheet" href="navbar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Order</title>
 </head>
 <body>
-    <div class="Header">
-        <div class="HeaderHome">
-            <a href="index.html">Coffee Order System</a>
-        </div>
-        <div class="HeaderNav">
-            <a href="orderstatus.html">Order Status</a>
-        </div>
-    </div>
+
+    <ul class="topnav">
+        <li><a href="index.html">Home</a></li>       
+        <li><a href="orderstatus.html">Order Status</a></li>
+        <li class="right"><a  href="login.html">Login</a></li>
+      </ul>
 
     <div class="Content">
         <div class="ButtonTitle">
@@ -42,6 +41,7 @@
         </div>
     </div>
 
+    <script src="configuration.js"></script>
     <script>
         let condiments = [];
         const queryString = window.location.search;
@@ -86,13 +86,14 @@
                 beverage: beverage,
                 condiments: condiments,
             }
-            let host = "https://coffee-order-latest-a48h.onrender.com";
+            let host = getHost();
             let message = "";
             console.log(orderData);
             let request = {
                 method: "POST",
                 headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${configuration.token()}`
                 },
                 body: JSON.stringify(orderData)
             };

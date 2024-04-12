@@ -2,22 +2,35 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="navbar.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Coffee Order</title>
     </head>
 
     <body>
-        <div class="Header">
-            <div class="HeaderHome">
-                <a href="index.html">Coffee Order System</a>
-            </div>
-            <div class="HeaderNav">
-                <a href="orderstatus.html">Order Status</a>
-            </div>
-            <div class="ButtonContainer">
-                <a href="beverage.html"><button>Start Order</button></a>
-            </div>
+        <ul class="topnav">
+            <li><a class="active" href="index.html">Home</a></li>       
+            <li><a href="orderstatus.html">Order Status</a></li>
+            <li class="right"><a  href="login.html">Login</a></li>
+        </ul>
+
+        <div class="ButtonContainer">
+            <button onclick="goToBeverage()">Start Order</button></a>
         </div>
+
+        <script src="configuration.js"></script>
+        <script>
+            let loggedIn = isLoggedIn();
+            function goToBeverage() {
+                if (loggedIn) {
+                    location.href = "beverage.html";
+                } else {
+                    alert("Please login");
+                    location.href = "login.html";
+                }
+            }
+
+        </script>
     </body>
 </html>

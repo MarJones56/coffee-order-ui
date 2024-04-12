@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navbar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Order</title>
 </head>
 
 <body>
-    <div class="Header">
-        <div class="HeaderHome">
-            <a href="index.html">Coffee Order System</a>
-        </div>
-        <div class="HeaderNav">
-            <a href="orderstatus.html">Order Status</a>
-        </div>
+
+    <ul class="topnav">
+        <li><a href="index.html">Home</a></li>       
+        <li><a href="orderstatus.html">Order Status</a></li>
+        <li class="right"><a  href="login.html">Login</a></li>
+      </ul>
+      
         <div class="ReceiptDisplay">
             <h1>Order Placed:</h1>
             <h1 id="orderID">Order id: </h1>
@@ -22,6 +23,7 @@
             <h1 id="total">Total: $</h1>
         </div>
 
+        <script src="configuration.js"></script>
         <script>
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString); 
